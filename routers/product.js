@@ -7,7 +7,11 @@ const productMiddle = require('../middlewares/product');
 const router = express.Router();
 
 router.route('/')
-  .post(productMiddle.validateBody)
+  .post(
+    productMiddle.validateBody,
+    rescue(productMiddle.validateNameAlreadyExists),
+    rescue(productController.create),
+  )
   .get(rescue(productController.getAll));
 
 router.route('/:id')

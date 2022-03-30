@@ -1,4 +1,5 @@
 const Joi = require('joi');
+const productService = require('../services/product');
 
 const productSchema = Joi.object({
   name: Joi.string().min(5).required(),
@@ -15,6 +16,17 @@ const validateBody = (req, _res, next) => {
   return next();
 };
 
+const validateNameAlreadyExists = async (req, res, next) => {
+  const { name } = req.body;
+
+  const product = await productService.getByName(name);
+
+  if (product) return res.status(409).json({ message: 'Product already exists' });
+
+  return next();
+};
+
 module.exports = {
   validateBody,
+  validateNameAlreadyExists,
 };
