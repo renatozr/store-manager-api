@@ -16,7 +16,11 @@ router.route('/')
 
 router.route('/:id')
   .get(rescue(productController.getById))
-  .put(productMiddle.validateBody)
+  .put(
+    productMiddle.validateBody,
+    rescue(productMiddle.validateProductExists),
+    rescue(productController.update),
+  )
   .delete();
 
 module.exports = router;
