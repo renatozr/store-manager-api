@@ -21,6 +21,9 @@ router.route('/:id')
     rescue(productMiddle.validateProductExists),
     rescue(productController.update),
   )
-  .delete();
+  .delete(
+    productMiddle.validateProductExists,
+    rescue(productController.exclude),
+  );
 
 module.exports = router;
