@@ -18,8 +18,15 @@ const create = async (items) => {
   return sale;
 };
 
+const update = async (saleId, productId, quantity) => {
+  const item = await saleModel.update(saleId, productId, quantity);
+
+  return item;
+};
+
 module.exports = {
   getAll,
   getById,
   create,
+  update,
 };

@@ -15,7 +15,10 @@ router.route('/')
 
 router.route('/:id')
   .get(rescue(saleController.getById))
-  .put(saleMiddle.validateBody)
+  .put(
+    saleMiddle.validateBody,
+    rescue(saleController.update),
+  )
   .delete();
 
 module.exports = router;
