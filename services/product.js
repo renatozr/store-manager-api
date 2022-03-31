@@ -19,15 +19,15 @@ const getByName = async (name) => {
 };
 
 const create = async (name, quantity) => {
-  const product = await productModel.create(name, quantity);
+  const createdProduct = await productModel.create(name, quantity);
 
-  return product;
+  return createdProduct;
 };
 
 const update = async (id, name, quantity) => {
-  const product = await productModel.update(id, name, quantity);
+  const updatedProduct = await productModel.update(id, name, quantity);
 
-  return product;
+  return updatedProduct;
 };
 
 const exclude = async (id) => {

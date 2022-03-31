@@ -14,17 +14,17 @@ const getById = async (id) => {
 };
 
 const create = async (items) => {
-  const sale = await saleModel.create(items);
+  const createdSale = await saleModel.create(items);
 
   await productModel.updateQuantity(items, 'created');
 
-  return sale;
+  return createdSale;
 };
 
 const update = async (saleId, productId, quantity) => {
-  const item = await saleModel.update(saleId, productId, quantity);
+  const updatedSale = await saleModel.update(saleId, productId, quantity);
 
-  return item;
+  return updatedSale;
 };
 
 const exclude = async (id) => {

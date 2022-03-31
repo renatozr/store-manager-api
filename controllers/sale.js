@@ -19,18 +19,18 @@ const getById = async (req, res) => {
 const create = async (req, res) => {
   const items = [...req.body];
 
-  const sale = await saleService.create(items);
+  const createdSale = await saleService.create(items);
 
-  return res.status(201).json(sale);
+  return res.status(201).json(createdSale);
 };
 
 const update = async (req, res) => {
   const { id } = req.params;
   const [{ productId, quantity }] = req.body;
 
-  const item = await saleService.update(id, productId, quantity);
+  const updatedSale = await saleService.update(id, productId, quantity);
 
-  return res.status(200).json(item);
+  return res.status(200).json(updatedSale);
 };
 
 const exclude = async (req, res) => {
