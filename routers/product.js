@@ -22,7 +22,7 @@ router.route('/:id')
     rescue(productController.update),
   )
   .delete(
-    productMiddle.validateProductExists,
+    rescue(productMiddle.validateProductExists),
     rescue(productController.exclude),
   );
 

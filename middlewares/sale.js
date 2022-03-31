@@ -1,4 +1,5 @@
 const Joi = require('joi');
+const saleService = require('../services/sale');
 
 const itemSchema = Joi.object({
   productId: Joi.required(),
@@ -15,6 +16,17 @@ const validateBody = (req, _res, next) => {
   return next();
 };
 
+const validateSaleExists = async (req, res, next) => {
+  const { id } = req.params;
+
+  const sale = await saleService.getById(id);
+
+  if (!sale) return res.status(404).json({ message: 'Sale not found' });
+
+  return next();
+};
+
 module.exports = {
   validateBody,
+  validateSaleExists,
 };

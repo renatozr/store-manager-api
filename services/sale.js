@@ -24,9 +24,14 @@ const update = async (saleId, productId, quantity) => {
   return item;
 };
 
+const exclude = async (id) => {
+  await saleModel.exclude(id);
+};
+
 module.exports = {
   getAll,
   getById,
   create,
   update,
+  exclude,
 };

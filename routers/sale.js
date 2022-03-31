@@ -19,6 +19,9 @@ router.route('/:id')
     saleMiddle.validateBody,
     rescue(saleController.update),
   )
-  .delete();
+  .delete(
+    rescue(saleMiddle.validateSaleExists),
+    rescue(saleController.exclude),
+  );
 
 module.exports = router;
