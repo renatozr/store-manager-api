@@ -7,7 +7,10 @@ const saleMiddle = require('../middlewares/sale');
 const router = express.Router();
 
 router.route('/')
-  .post(saleMiddle.validateBody)
+  .post(
+    saleMiddle.validateBody,
+    rescue(saleController.create),
+  )
   .get(rescue(saleController.getAll));
 
 router.route('/:id')
