@@ -84,11 +84,17 @@ describe('Métodos de "productModel"', () => {
 
   describe('updateQuantity', () => {
 
-    before(() => { connection.execute.resolves() });
-    after(() => { connection.execute.reset() });
+    beforeEach(() => { connection.execute.resolves() });
+    afterEach(() => { connection.execute.reset() });
 
-    it('atualiza a quantidade dos produtos no banco de dados', async () => {
+    it('diminui a quantidade dos produtos no banco de dados', async () => {
       await productModel.updateQuantity(items, 'created');
+
+      expect(connection.execute.callCount).to.be.equal(items.length);
+    });
+
+    it('aumenta a quantidade dos produtos no banco de dados', async () => {
+      await productModel.updateQuantity(items, 'deleted');
 
       expect(connection.execute.callCount).to.be.equal(items.length);
     });
