@@ -1,5 +1,6 @@
 const Joi = require('joi');
 const saleService = require('../services/sale');
+const productService = require('../services/product');
 
 const itemSchema = Joi.object({
   productId: Joi.required(),
@@ -26,7 +27,20 @@ const validateSaleExists = async (req, res, next) => {
   return next();
 };
 
+const validateProductsAvailability = async (req, res, next) => {
+  const [{ productId, quantity }] = req.body;
+
+  const product = await productService.getById(productId);
+
+  if (quantity > product.quantity) {
+    return res.status(422).json({ message: 'Such amount is not permitted to sell' });
+  }
+
+  return next();
+};
+
 module.exports = {
   validateBody,
   validateSaleExists,
+  validateProductsAvailability,
 };

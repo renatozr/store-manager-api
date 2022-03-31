@@ -9,6 +9,7 @@ const router = express.Router();
 router.route('/')
   .post(
     saleMiddle.validateBody,
+    rescue(saleMiddle.validateProductsAvailability),
     rescue(saleController.create),
   )
   .get(rescue(saleController.getAll));
