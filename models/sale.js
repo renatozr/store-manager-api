@@ -40,12 +40,12 @@ const create = async (items) => {
     'INSERT INTO StoreManager.sales (date) VALUES (NOW());',
   );
 
-  const createItemsPromisses = items.map(({ productId, quantity }) => connection.execute(
+  const createItemPromisses = items.map(({ productId, quantity }) => connection.execute(
     'INSERT INTO StoreManager.sales_products (sale_id, product_id, quantity) VALUES (?, ?, ?);',
     [insertId, productId, quantity],
   ));
 
-  await Promise.all(createItemsPromisses);
+  await Promise.all(createItemPromisses);
 
   return { id: insertId, itemsSold: items };
 };
@@ -60,10 +60,17 @@ const update = async (saleId, productId, quantity) => {
 };
 
 const exclude = async (id) => {
+  const [items] = await connection.execute(
+    'SELECT product_id, quantity FROM StoreManager.sales_products WHERE sale_id = ?;',
+    [id],
+  );
+
   await connection.execute(
     'DELETE FROM StoreManager.sales WHERE id = ?;',
     [id],
   );
+
+  return items.map(serialize);
 };
 
 module.exports = {

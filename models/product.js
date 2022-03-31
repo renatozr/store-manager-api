@@ -44,6 +44,17 @@ const update = async (id, name, quantity) => {
   return { id, name, quantity };
 };
 
+const updateQuantity = async (items, state) => {
+  const updateProductPromisses = items.map(({ productId, quantity }) => connection.execute(
+    state === 'created'
+      ? 'UPDATE StoreManager.products SET quantity = quantity - ? WHERE id = ?;'
+      : 'UPDATE StoreManager.products SET quantity = quantity + ? WHERE id = ?;',
+    [quantity, productId],
+  ));
+
+  await Promise.all(updateProductPromisses);
+};
+
 const exclude = async (id) => {
   await connection.execute(
     'DELETE FROM StoreManager.products WHERE id = ?',
@@ -57,5 +68,6 @@ module.exports = {
   getByName,
   create,
   update,
+  updateQuantity,
   exclude,
 };

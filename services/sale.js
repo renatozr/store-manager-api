@@ -1,4 +1,5 @@
 const saleModel = require('../models/sale');
+const productModel = require('../models/product');
 
 const getAll = async () => {
   const sales = await saleModel.getAll();
@@ -15,6 +16,8 @@ const getById = async (id) => {
 const create = async (items) => {
   const sale = await saleModel.create(items);
 
+  await productModel.updateQuantity(items, 'created');
+
   return sale;
 };
 
@@ -25,7 +28,9 @@ const update = async (saleId, productId, quantity) => {
 };
 
 const exclude = async (id) => {
-  await saleModel.exclude(id);
+  const items = await saleModel.exclude(id);
+
+  await productModel.updateQuantity(items, 'deleted');
 };
 
 module.exports = {
