@@ -22,7 +22,7 @@ describe('Métodos de "productModel"', () => {
     before(() => { connection.execute.resolves(dbProducts) });
     after(() => { connection.execute.reset() });
 
-    it('retorna todos os produtos no banco de dados', async () => {
+    it('retorna todos os produtos do banco de dados', async () => {
       const response = await productModel.getAll();
 
       expect(connection.execute.calledOnce).to.be.true;

@@ -27,7 +27,7 @@ describe('Métodos de "saleModel"', () => {
     before(() => { connection.execute.resolves(dbSales) });
     after(() => { connection.execute.reset() });
 
-    it('retorna todas as vendas no banco de dados', async () => {
+    it('retorna todas as vendas do banco de dados', async () => {
       const response = await saleModel.getAll();
 
       expect(connection.execute.calledOnce).to.be.true;
@@ -91,7 +91,7 @@ describe('Métodos de "saleModel"', () => {
     before(() => { connection.execute.onFirstCall().resolves(dbItems) });
     after(() => { connection.execute.reset() });
 
-    it('retorna todas as vendas no banco de dados', async () => {
+    it('exclui a venda no banco de dados e retorna seus items excluidos', async () => {
       const response = await saleModel.exclude(saleId);
 
       expect(connection.execute.calledTwice).to.be.true;
