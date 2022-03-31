@@ -3,7 +3,7 @@ const saleService = require('../services/sale');
 const productService = require('../services/product');
 
 const itemSchema = Joi.object({
-  productId: Joi.required(),
+  productId: Joi.number().required(),
   quantity: Joi.number().integer().min(1).required(),
 });
 
