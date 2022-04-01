@@ -8,7 +8,9 @@ Techs: Node, Express.js, MySQL, JOI, Mocha, Chai, Sinon.
 
 1. Clone o repositório
 
-- `git clone git@github.com:renatozr/store-manager-api.git` ou `git clone https://github.com/renatozr/store-manager-api.git`
+- `git clone git@github.com:renatozr/store-manager-api.git`
+ou
+- `git clone https://github.com/renatozr/store-manager-api.git`
 - Entre na pasta do repositório que você acabou de clonar:
   - `cd store-manager-api`
 
