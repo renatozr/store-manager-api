@@ -1,5 +1,5 @@
 # store-manager-api
-API REST, que maneja dados de produtos e vendas de uma loja fictícia.
+REST API, que maneja dados de produtos e vendas de uma loja fictícia.
 Através dessa aplicação, será possível realizar as operações básicas que se pode fazer em um determinado banco de dados: Criação, Leitura, Atualização e Exclusão.
 
 Techs: Node, Express.js, MySQL, JOI, Mocha, Chai, Sinon.
