@@ -37,3 +37,8 @@ PORT=3000
 5. Rode a aplicação
 
  - `npm start`
+
+6. Faça suas requisições
+
+- exemplo caso as variáveis de ambiente sejam MYSQL_HOST=localhost, PORT=3000
+  - http://localhost:3000/products
