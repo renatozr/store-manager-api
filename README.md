@@ -40,5 +40,5 @@ PORT=3000
 
 6. Faça suas requisições
 
-- exemplo caso as variáveis de ambiente sejam MYSQL_HOST=localhost, PORT=3000
+- exemplo caso a variável de ambiente PORT=3000
   - http://localhost:3000/products
