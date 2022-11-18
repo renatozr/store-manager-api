@@ -41,4 +41,7 @@ PORT=3000
 6. Faça suas requisições
 
 - exemplo caso a variável de ambiente PORT=3000
-  - http://localhost:3000/products  a
+  - http://localhost:3000/products
+
+<br />
+Arquivos que não foram escritos por mim: .eslintignore, .eslintrc.json, .gitignore, StoreManager.sql
