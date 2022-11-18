@@ -43,5 +43,5 @@ PORT=3000
 - exemplo caso a variável de ambiente PORT=3000
   - http://localhost:3000/products
 
-<br />
+##
 Arquivos que não foram escritos por mim: .eslintignore, .eslintrc.json, .gitignore, StoreManager.sql
