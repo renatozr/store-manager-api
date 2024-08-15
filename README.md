@@ -46,11 +46,15 @@ To exercise REST API development, unit testing, JOI validation and MySQL.
   MYSQL_USER=root
   MYSQL_PASSWORD=password
    ```
-6. Run the project
+6. Setup database
+   ```sh
+   npm run initdb
+   ```
+7. Run the project
    ```sh
    npm run dev
    ```
-7. Run the project tests
+8. Run the project tests
    ```sh
-   npm run test
+   npm test
    ```
