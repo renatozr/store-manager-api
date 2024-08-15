@@ -40,11 +40,11 @@ To exercise REST API development, unit testing, JOI validation and MySQL.
 4. Rename .env.example file to .env
 5. Fill in the environment variables (example below)
    ```sh
-  PORT=3001
-  MYSQL_HOST=localhost
-  MYSQL_PORT=3306
-  MYSQL_USER=root
-  MYSQL_PASSWORD=password
+   PORT=3001
+   MYSQL_HOST=localhost
+   MYSQL_PORT=3306
+   MYSQL_USER=root
+   MYSQL_PASSWORD=password
    ```
 6. Setup database
    ```sh
