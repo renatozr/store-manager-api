@@ -63,9 +63,9 @@ describe('Sale model methods', function () {
     it('returns created sale from database', async function () {
       connection.execute.onFirstCall().resolves([{ insertId: createdSale.id }]);
 
-      const response = await saleModel.create(createdSale.itemsSold);
+      const response = await saleModel.create(createdSale.soldItems);
 
-      expect(connection.execute.callCount).to.be.equal(createdSale.itemsSold.length + 1);
+      expect(connection.execute.callCount).to.be.equal(createdSale.soldItems.length + 1);
       expect(response).to.be.deep.equal(createdSale);
 
       connection.execute.reset();
@@ -73,7 +73,7 @@ describe('Sale model methods', function () {
   });
 
   describe('update', function () {
-    const { itemUpdated: [{ productId, quantity }] } = updatedSale;
+    const { updatedItem: [{ productId, quantity }] } = updatedSale;
 
     it('returns updated sale from database', async function () {
       connection.execute.resolves();

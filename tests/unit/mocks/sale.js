@@ -47,7 +47,7 @@ const DBSale = [[
 
 const createdSale = {
   id: 3,
-  itemsSold: [
+  soldItems: [
     {
       productId: 1,
       quantity: 3,
@@ -57,7 +57,7 @@ const createdSale = {
 
 const updatedSale = {
   saleId: 1,
-  itemUpdated: [
+  updatedItem: [
     {
       productId: 1,
       quantity: 6,

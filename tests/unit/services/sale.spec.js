@@ -71,7 +71,7 @@ describe('Sale service methods', function () {
   });
 
   describe('update', function () {
-    const { itemUpdated: [{ productId, quantity }] } = updatedSale;
+    const { updatedItem: [{ productId, quantity }] } = updatedSale;
 
     it('returns updated sale', async function () {
       saleModel.update.resolves(updatedSale);

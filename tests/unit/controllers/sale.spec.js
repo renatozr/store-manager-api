@@ -85,7 +85,7 @@ describe('Sale controller methods', function () {
   describe('create', function () {
     it('responds status 201 and created sale json', async function () {
       saleService.create.resolves(createdSale);
-      req.body = createdSale.itemsSold;
+      req.body = createdSale.soldItems;
 
       await saleController.create(req, res);
 
@@ -103,7 +103,7 @@ describe('Sale controller methods', function () {
     it('responds status 200 and updated sale json', async function () {
       saleService.update.resolves(updatedSale);
       req.params = saleId;
-      req.body = updatedSale.itemUpdated;
+      req.body = updatedSale.updatedItem;
 
       await saleController.update(req, res);
 

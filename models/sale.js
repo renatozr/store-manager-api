@@ -47,7 +47,7 @@ const create = async (items) => {
 
   await Promise.all(createItemPromisses);
 
-  return { id: insertId, itemsSold: items };
+  return { id: insertId, soldItems: items };
 };
 
 const update = async (saleId, productId, quantity) => {
@@ -56,7 +56,7 @@ const update = async (saleId, productId, quantity) => {
     [quantity, saleId, productId],
   );
 
-  return { saleId, itemUpdated: [{ productId, quantity }] };
+  return { saleId, updatedItem: [{ productId, quantity }] };
 };
 
 const exclude = async (id) => {
