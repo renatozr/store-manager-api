@@ -3,7 +3,7 @@
   <h3 align="center">Store Manager API</h3>
 
   <p align="center">
-    A REST API that manages products and sales from a store
+    A RESTful API that manages products and sales from a store
     <br />
   </p>
 </div>
@@ -12,7 +12,7 @@
 
 ## About The Project
 
-To exercise REST API development, unit testing, JOI validation and MySQL.
+To exercise RESTful API development, unit testing, JOI validation and MySQL.
 
 <!-- GETTING STARTED -->
 
