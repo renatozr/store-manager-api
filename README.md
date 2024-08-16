@@ -3,7 +3,7 @@
   <h3 align="center">Store Manager API</h3>
 
   <p align="center">
-    A RESTful API that manages products and sales from a store
+    An API that manages products and sales from a store
     <br />
   </p>
 </div>
